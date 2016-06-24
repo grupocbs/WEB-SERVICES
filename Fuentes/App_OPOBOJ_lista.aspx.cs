@@ -47,8 +47,8 @@ public partial class App_OPOBOJ_lista: System.Web.UI.Page
                     DataTable dt = new DataTable();
 
                     string sql = "select USR_OPOBOJ_CODOBS as ID";
-                    sql += "    ,USR_OPOBTP_CODIGO + '-' +t.USR_OPOBTP_DESCRP as tipo ";
-                    sql += "	,VTMCLH_NROCTA +'-'+VTMCLH_NOMBRE as cliente";
+                    sql += "    ,t.USR_OPOBTP_DESCRP as tipo ";
+                    sql += "	,USR_CLIOBJ_OBJDSC as cliente";
                     sql += "	,USR_OPOBOJ_OBSERV as obs";
                     sql += "	, replace(isnull(USR_OPOBOJ_FIRMA1,''),'192.168.1.141','127.0.0.1') as firma1";
                     sql += "	,USR_OPOBOJ_CORREC as correccion";
@@ -58,7 +58,7 @@ public partial class App_OPOBOJ_lista: System.Web.UI.Page
                     sql += " from [USR_OPOBOJ] o with(nolock)";
                     sql += " left join USR_OPOBES e WITH(NOLOCK) on o.USR_OPOBOJ_ESTADO=e.USR_OPOBES_CODIGO";
                     sql += " left join USR_OPOBTP t WITH(NOLOCK) on o.USR_OPOBOJ_TIPOOB=t.USR_OPOBTP_CODIGO";
-                    sql += " left join VTMCLH c WITH(NOLOCK) on o.USR_OPOBOJ_CODCLI=c.VTMCLH_NROCTA";
+                    sql += " left join USR_CLIOBJ c WITH(NOLOCK) on o.USR_OPOBOJ_CODCLI=c.USR_CLIOBJ_CODOBJ";
                     sql += " WHERE USR_OPOBOJ_USERNM='" + Request.QueryString.Get("us").ToString() + "'";
 
                     if (Request.QueryString.Get("estado") != null)

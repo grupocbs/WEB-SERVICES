@@ -133,7 +133,7 @@ public class Interfaz
     {
         try
         {
-            string url = @"\\127.0.0.1\web_services\Archivos\Capturas\" + usernm + @"\" + codobs + @"\" + nombre_imagen_firma;
+            string url = @"\\192.168.1.141\web_services\Archivos\Capturas\" + usernm + @"\" + codobs + @"\" + nombre_imagen_firma;
 
             string sql = "UPDATE [USR_OPOBOJ] ";
             sql += " SET USR_OPOBOJ_FIRMA1='" + url + "'";
@@ -160,7 +160,7 @@ public class Interfaz
         try
         {
            //string url = "http://192.168.1.141:8080/Archivos/Capturas/" + codobs + "/" + nombre_imagen;
-            string url = @"\\127.0.0.1\web_services\Archivos\Capturas\" + usuario + @"\" + codobs + @"\" + nombre_imagen;
+            string url = @"\\192.168.1.141\web_services\Archivos\Capturas\" + usuario + @"\" + codobs + @"\" + nombre_imagen;
 		DateTime Fecha=DateTime.Now;
 
         string sql = "INSERT INTO [USR_OPOBCA] ([USR_OPOBCA_CODOBS],[USR_OPOBCA_URLOBS],[USR_OPOBCA_CPTITL],[USR_OPOBCA_FCHALT],[USR_OP_FECALT],[USR_OP_FECMOD],[USR_OP_ULTOPR],[USR_OP_DEBAJA],[USR_OP_OALIAS],[USR_OP_USERID],[USR_OPOBCA_USERNM])";
